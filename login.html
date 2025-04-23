@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODO Course Dashboard - Login</title>
+    <link rel="icon" href="https://codoacademy.com/uploads/system/e7c3fb5390c74909db1bb3559b24007a.png"
+        type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://codoacademy.com/uploads/system/e7c3fb5390c74909db1bb3559b24007a.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #00b764;
+            --secondary-color: #00203f;
+            --accent-color: #ff6f61;
+            --text-color: #2d3436;
+            --bg-color: #f0f3ff;
+            --card-bg: white;
+            --border-color: #ddd;
+            --highlight-color: #f0fff4;
+            --transition-speed: 0.3s;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            padding: 1rem;
+        }
+
+        .login-container {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 420px;
+            margin: auto;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .login-header h1 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .login-header p {
+            color: var(--text-color);
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: calc(var(--border-radius) / 2);
+            font-size: 1rem;
+            transition: all var(--transition-speed);
+            background-color: var(--bg-color);
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 183, 100, 0.1);
+            background-color: white;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: calc(var(--border-radius) / 2);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            margin-top: 1rem;
+        }
+
+        .login-btn:hover {
+            background: #009e54;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 183, 100, 0.2);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: var(--accent-color);
+            font-size: 0.875rem;
+            margin-top: 0.75rem;
+            display: none;
+            text-align: center;
+            padding: 0.75rem;
+            background-color: #fff1f0;
+            border-radius: calc(var(--border-radius) / 2);
+            border: 1px solid #ffccc7;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+
+            .login-container {
+                padding: 1.5rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .login-header p {
+                font-size: 0.9rem;
+            }
+
+            .form-group input {
+                padding: 0.875rem;
+            }
+
+            .login-btn {
+                padding: 0.875rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .login-container {
+                padding: 1.25rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --card-bg: #1a1a1a;
+                --bg-color: #2d2d2d;
+                --text-color: #ffffff;
+                --border-color: #404040;
+            }
+
+            .login-header h1 {
+                color: var(--primary-color);
+            }
+
+            .form-group input {
+                color: var(--primary-color);
+            }
+
+            .error-message {
+                background-color: rgba(255, 111, 97, 0.1);
+                border-color: rgba(255, 111, 97, 0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>CODO Course Dashboard</h1>
+            <p>Enter your credentials to continue</p>
+        </div>
+        <form id="loginForm" onsubmit="return validateLogin(event)">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required autocomplete="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+                <label for="otp">OTP</label>
+                <input type="text" id="otp" name="otp" required maxlength="6" inputmode="numeric" placeholder="Enter 6-digit OTP">
+            </div>
+            <p id="errorMessage" class="error-message">Invalid credentials. Please try again.</p>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const otp = document.getElementById('otp').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const loginBtn = document.querySelector('.login-btn');
+
+            // Disable button during validation
+            loginBtn.disabled = true;
+            loginBtn.style.opacity = '0.7';
+            loginBtn.textContent = 'Validating...';
+
+            // Check credentials
+            if (username === 'moajmalnk' && password === 'admin123' && otp === '995559') {
+                loginBtn.textContent = 'Success! Redirecting...';
+                localStorage.setItem('isLoggedIn', 'true');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 500);
+                return true;
+            } else {
+                errorMessage.style.display = 'block';
+                loginBtn.disabled = false;
+                loginBtn.style.opacity = '1';
+                loginBtn.textContent = 'Login';
+                return false;
+            }
+        }
+
+        // Check if user is already logged in
+        window.onload = function() {
+            if (localStorage.getItem('isLoggedIn') === 'true' && window.location.pathname.includes('login.html')) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Clear error message when user starts typing
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                document.getElementById('errorMessage').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

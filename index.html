@@ -11,6 +11,17 @@
         href="https://codoacademy.com/uploads/system/e7c3fb5390c74909db1bb3559b24007a.png">
     <!-- Add this script before other scripts -->
     <script>
+        // Check authentication at the start of the file
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+
+        // Add logout function
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        }
+
         // Disable Live Server's WebSocket
         window.LiveServerOptions = {
             injectWebSocket: false
@@ -24,6 +35,7 @@
 </head>
 
 <body>
+    <button onclick="logout()" class="logout-btn">Logout</button>
     <div class="container mt-4">
         <header>
             <h1>📊 CODO Course Dashboard</h1>
@@ -167,12 +179,12 @@
                             <div class="input-row">
                                 <div class="form-group">
                                     <label for="regularFee">Regular Fee (₹)</label>
-                                    <input type="number" id="regularFee" class="form-control money-input" value="4000">
+                                    <input type="number" id="regularFee" class="form-control money-input" value="9000">
                                 </div>
                                 <div class="form-group">
                                     <label for="discountedFee">Discounted Fee (₹)</label>
                                     <input type="number" id="discountedFee" class="form-control money-input"
-                                        value="2000">
+                                        value="4500">
                                 </div>
                             </div>
                         </div>

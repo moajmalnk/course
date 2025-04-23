@@ -36,12 +36,12 @@ function showOfflineMessage() {
     }
 
     const modal = document.createElement('div');
-    modal.className = 'connection-status-modal';
+    modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;';
     modal.innerHTML = `
-        <div class="modal-content">
-            <h2>Connection Status</h2>
-            <p>You are in offline mode. Some features may not be available.</p>
-            <button onclick="hideOfflineMessage()">OK</button>
+        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 90%; max-width: 400px; margin: 0 15px; text-align: center;">
+            <h2 style="margin: 0 0 15px 0; color: #333; font-size: 1.5rem;">Connection Status</h2>
+            <p style="margin: 0 0 20px 0; color: #666; font-size: 1rem;">You are in offline mode. Some features may not be available.</p>
+            <button onclick="hideOfflineMessage()" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 100%; max-width: 200px;">OK</button>
         </div>
     `;
     document.body.appendChild(modal);
