@@ -249,7 +249,7 @@
                 loginBtn.textContent = 'Success! Redirecting...';
                 localStorage.setItem('isLoggedIn', 'true');
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    window.location.href = '/';
                 }, 500);
                 return true;
             } else {
@@ -263,8 +263,8 @@
 
         // Check if user is already logged in
         window.onload = function() {
-            if (localStorage.getItem('isLoggedIn') === 'true' && window.location.pathname.includes('login.html')) {
-                window.location.href = 'index.html';
+            if (localStorage.getItem('isLoggedIn') === 'true' && window.location.pathname.includes('login')) {
+                window.location.href = '/';
             }
         }
 

@@ -13,13 +13,13 @@
     <script>
         // Check authentication at the start of the file
         if (!localStorage.getItem('isLoggedIn')) {
-            window.location.href = 'login.html';
+            window.location.href = '/login';
         }
 
         // Add logout function
         function logout() {
             localStorage.removeItem('isLoggedIn');
-            window.location.href = 'login.html';
+            window.location.href = '/login';
         }
 
         // Disable Live Server's WebSocket
