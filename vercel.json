@@ -13,5 +13,22 @@
         }
       ]
     }
-  ]
+  ],
+  "version": 2,
+  "routes": [
+    {
+      "src": "/login",
+      "dest": "/login.html"
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.+)",
+      "dest": "/$1"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
